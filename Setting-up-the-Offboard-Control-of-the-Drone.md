@@ -23,8 +23,16 @@ To check that your package is indeed there, go into the `ros2_ws` directory and 
 ## Offboard Control 
 When creating an offboard control file that will be used to fly the drone autonomously, there are a few steps that need to be taken. 
 
+The first step is creating the python file that will be used for the offboard control. This is done within the package. 
+
+```bash
+cd <package_name>
+touch <file_name>
+
+```
+
 ### QoS Settings Compatibility
-First, the QoS settings need to be established. QoS stands for Quality of Service (QoS) settings. These are like rules you set when subscribing or publishing to a topic to control how reliable, fast and resilient your messages are. These settings determine your:
+Next, the QoS settings need to be established. QoS stands for Quality of Service (QoS) settings. These are like rules you set when subscribing or publishing to a topic to control how reliable, fast and resilient your messages are. These settings determine your:
 * Storage history 
 * Depth (Only applicable if you're storing last samples and not all)
 * Reliability 
