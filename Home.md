@@ -4,5 +4,5 @@ Before trying to replicate the development process, please make sure you have fo
 
 **Table of Contents**
 1. [Setting up the Offboard Control of the Drone](https://github.com/p4mars/drone_light_show/wiki/Setting-up-the-Offboard-Control-of-the-Drone)
-
+2. [PX4-Topics:-How-to-Use-Them](https://github.com/p4mars/drone_light_show/wiki/PX4-Topics:-How-to-Use-Them)
 
