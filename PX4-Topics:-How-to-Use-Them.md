@@ -73,7 +73,7 @@ For this example, I will be showing you how to access the GPS information of the
 To access this information you have to use the uORB message: [**SensorGps**](https://docs.px4.io/main/en/msg_docs/SensorGps.html) \
 This is associated with the topic: `/fmu/out/vehicle_gps_position` \
 
-I urge you to look at the documentation related to the SensorGps to see how these messages are usually formatted. We will use the following extract of the file to access the GPS coordinates of the drone:
+I urge you to look at the documentation related to the SensorGps uORB message to see how these messages are usually formatted. We will use the following extract of the file to access the GPS coordinates of the drone:
 
 ``` C
 float64 latitude_deg		# Latitude in degrees, allows centimeter level RTK precision
@@ -122,3 +122,85 @@ def __init__(self) -> None:
 ```
 
 ## Publisher Example
+For this example, we will show you a standard template we have used for most vehicle commands but more specifically for an arming command. This means that we are publishing the parameter that will change the drone from disarmed to armed. 
+
+To access this information you have to use the uORB message: [**VehicleCommand**](https://docs.px4.io/main/en/msg_docs/VehicleCommand.html) \
+This is associated with the topic: `/fmu/in/vehicle_command` \
+
+I urge you to look at the documentation related to the VehicleCommand uORB message to see how these messages are usually formatted. We will use the following extract of the file to access the arming parameters of the drone:
+
+``` C
+# used as param1 in ARM_DISARM command
+int8 ARMING_ACTION_DISARM = 0
+int8 ARMING_ACTION_ARM = 1
+```
+
+1. Following the aforementioned steps, import the uORB message from px4_msgs.msg as `from px4_msgs.msg import VehicleCommand`.
+
+2. In the __init__ definition, define the publisher. 
+
+``` python
+self.vehicle_command_publisher = self.create_publisher(VehicleCommand, '/fmu/in/vehicle_command', qos_profile)
+```
+
+3. This is a unique step that we used. We created a multifunctional publishing vehicle command definition as multiple functions require the VehicleCommand uORb message such as arming, disarming, engaging offboard mode, landing etc. By using the `**params`, it unpacks all parameters that you specify that are related to your specific action. So if you only specify param1, then it will update param 1 and surpass the other param statements within the definition.
+
+``` python
+    def publish_vehicle_command(self, command, **params) -> None:
+        msg = VehicleCommand()
+        msg.command = command
+        msg.param1 = params.get("param1", 0.0)
+        msg.param2 = params.get("param2", 0.0)
+        msg.param3 = params.get("param3", 0.0)
+        msg.param4 = params.get("param4", 0.0)
+        msg.param5 = params.get("param5", 0.0)
+        msg.param6 = params.get("param6", 0.0)
+        msg.param7 = params.get("param7", 0.0)
+        msg.target_system = 1
+        msg.target_component = 1
+        msg.source_system = 1
+        msg.source_component = 1
+        msg.from_external = True
+        msg.timestamp = int(self.get_clock().now().nanoseconds / 1000)
+        self.vehicle_command_publisher.publish(msg)
+``` 
+
+As we are looking specifically at arming the drone, we must understand what each parameter is and what message we are updating for the arming command. As this uses old MAVLink protocol, the following steps need to be taken:
+
+a) Find the associated vehicle command message in your uORB message. In this case, it is `VEHICLE_CMD_COMPONENT_ARM_DISARM`
+b) In the uORB documentation presented by PX4, you get this description of the parameters:
+
+``` python
+float32 param1			# Parameter 1, as defined by MAVLink uint16 VEHICLE_CMD enum.
+float32 param2			# Parameter 2, as defined by MAVLink uint16 VEHICLE_CMD enum.
+float32 param3			# Parameter 3, as defined by MAVLink uint16 VEHICLE_CMD enum.
+float32 param4			# Parameter 4, as defined by MAVLink uint16 VEHICLE_CMD enum.
+float64 param5			# Parameter 5, as defined by MAVLink uint16 VEHICLE_CMD enum.
+float64 param6			# Parameter 6, as defined by MAVLink uint16 VEHICLE_CMD enum.
+``` 
+This is essentially useless unless you know that you need to refer to **MAVLink documentation**. The old MAVLink protocol defines this function in a slightly different manner but if you want to arm the drone, you will need to set the param1 to 1. The specific parameters that are associated with the vehicle command message related to arming and disarming the drone can be found [here](https://mavlink.io/en/messages/common.html#MAV_CMD_COMPONENT_ARM_DISARM). 
+
+4. To use the publish_vehicle_command definition, create a new definition specifically for arming the drone and call the publish_vehicle_command within in by using the message `VEHICLE_CMD_COMPONENT_ARM_DISARM` and setting param1 to 1 (arming the drone).
+
+
+``` python
+# Arming the vehicle by sending the command
+def arm(self):
+   self.publish_vehicle_command(VehicleCommand.VEHICLE_CMD_COMPONENT_ARM_DISARM, param1=1.0)
+
+   # Printing an update
+   self.get_logger().info('Arm command sent')
+
+``` 
+
+5. To use this function, just call the arming function in your main control loop like so *:
+
+``` python
+
+    def control_loop(self) -> None:
+        self.arm()
+        self.get_logger().info("Arm command sent")
+
+``` 
+
+* Please keep in mind, if you want to use the arming command, you will have to enter offboard mode. For this you need to publish the offboard command mode message to OffboardControlMode() uORB message and have to send setpoint command for at least before the arming command will initiate in Offboard Mode [[3]](https://docs.px4.io/main/en/flight_modes/offboard.html#description)
