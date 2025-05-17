@@ -3,6 +3,12 @@ Welcome to the drone_light_show wiki! Here you will find how Hubert and Lauren b
 Before trying to replicate the development process, please make sure you have followed the environment set-up guidelines in our README.md file. 
 
 **Table of Contents**
-1. [Setting up the Offboard Control of the Drone](https://github.com/p4mars/drone_light_show/wiki/Setting-up-the-Offboard-Control-of-the-Drone)
-2. [PX4-Topics:-How-to-Use-Them](https://github.com/p4mars/drone_light_show/wiki/PX4-Topics:-How-to-Use-Them)
-
+[Building the Docker Container](https://github.com/p4mars/drone_light_show/wiki/0.-Building-the-Docker-Container)
+[Creating the Test File for a Single Drone](https://github.com/p4mars/drone_light_show/wiki/1.-Creating-Test-File-for-a-Single-Drone)
+[(Appendix) PX4 Topics: How to Use Them](https://github.com/p4mars/drone_light_show/wiki/1.A.-PX4-Topics:-How-to-Use-Them)
+[Expanding Test File to Multi-Vehicle Application](https://github.com/p4mars/drone_light_show/wiki/2.-Expanding-Test-File-to-Multi-Vehicle-Application)
+[(Appendix) Frame Transformation](https://github.com/p4mars/drone_light_show/wiki/2.A.-Frame-Transformation)
+[Path Planning](https://github.com/p4mars/drone_light_show/wiki/3.-Path-Planning)
+[Building the Gazebo World](https://github.com/p4mars/drone_light_show/wiki/4.-Building-Gazebo-World)
+[Implementing Path Planning](https://github.com/p4mars/drone_light_show/wiki/5.-Implementing-Path-Planning)
+[Final Remarks](https://github.com/p4mars/drone_light_show/wiki/6.-Final-Remarks)
