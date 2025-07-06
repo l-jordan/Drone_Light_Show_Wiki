@@ -10,5 +10,5 @@ Before trying to replicate the development process, please make sure you have fo
 3.A. [Frame Transformation](https://github.com/p4mars/drone_light_show/wiki/2.A.-Frame-Transformation)
 4. [Path Planning](https://github.com/p4mars/drone_light_show/wiki/3.-Path-Planning)
 5. [Building the Gazebo World](https://github.com/p4mars/drone_light_show/wiki/4.-Building-Gazebo-World)
-6. [Implementing Path Planning](https://github.com/p4mars/drone_light_show/wiki/5.-Implementing-Path-Planning)
+6. [Implementing Path Planning to Multi Node Simulation](https://github.com/p4mars/drone_light_show/wiki/5.-Implementing-Path-Planning-to-Multi%E2%80%90Node-Simulation)
 7. [Final Remarks](https://github.com/p4mars/drone_light_show/wiki/6.-Final-Remarks)
