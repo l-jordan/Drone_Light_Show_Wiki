@@ -1,3 +1,4 @@
+# README.md for the Drone Light Show Project (Capita Selecta)
 Welcome to the drone_light_show wiki! Here you will find how Hubert and Lauren built their simulation. For this Capita Selecta project, we are building a drone light show using three autonomously driven drones running PX4 Autopilot software. We will do this using Gazebo Ignition as our simulation environment and ROS2 as our autonomous communicator between the drone and the companion computer. This wiki will bring you step-by-step through our procedure to create this simulation from start to finish.
 
 Since the development belongs to a research group at TU Delft, the full repository cannot be shared. However, to rebuild our simulation, please follow the steps in our wiki. To run the simulation from start to finish, please refer to **Simulation Setup**.
