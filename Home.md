@@ -3,12 +3,12 @@ Welcome to the drone_light_show wiki! Here you will find how Hubert and Lauren b
 Before trying to replicate the development process, please make sure you have followed the environment set-up guidelines in our README.md file. 
 
 **Table of Contents**
-1. [Building the Docker Container](https://github.com/p4mars/drone_light_show/wiki/0.-Building-the-Docker-Container) 
-2. [Creating the Test File for a Single Drone](https://github.com/p4mars/drone_light_show/wiki/1.-Creating-Test-File-for-a-Single-Drone) for a simple circle trajectory \
-2.A. [PX4 Topics: How to Use Them](https://github.com/p4mars/drone_light_show/wiki/1.A.-PX4-Topics:-How-to-Use-Them)
-3. [Expanding Test File to Multi-Vehicle Application](https://github.com/p4mars/drone_light_show/wiki/2.-Expanding-Test-File-to-Multi-Vehicle-Application) for a simple triangle configuration \
-3.A. [Frame Transformation](https://github.com/p4mars/drone_light_show/wiki/2.A.-Frame-Transformation)
-4. [Path Planning](https://github.com/p4mars/drone_light_show/wiki/3.-Path-Planning)
-5. [Building the Gazebo World](https://github.com/p4mars/drone_light_show/wiki/4.-Building-Gazebo-World)
-6. [Implementing Path Planning to Multi Node Simulation](https://github.com/p4mars/drone_light_show/wiki/5.-Implementing-Path-Planning-to-Multi%E2%80%90Node-Simulation)
-7. [Final Remarks](https://github.com/p4mars/drone_light_show/wiki/6.-Final-Remarks)
+1. [Building the Docker Container]([https://github.com/p4mars/drone_light_show/wiki/0.-Building-the-Docker-Container](https://github.com/lauren-jordan/Drone_Light_Show_Wiki/blob/master/0.-Building-the-Docker-Container.md) 
+2. [Creating the Test File for a Single Drone]([https://github.com/p4mars/drone_light_show/wiki/1.-Creating-Test-File-for-a-Single-Drone](https://github.com/lauren-jordan/Drone_Light_Show_Wiki/blob/master/1.-Creating-Test-File-for-a-Single-Drone.md) for a simple circle trajectory \
+2.A. [PX4 Topics: How to Use Them]([https://github.com/p4mars/drone_light_show/wiki/1.A.-PX4-Topics:-How-to-Use-Them](https://github.com/lauren-jordan/Drone_Light_Show_Wiki/blob/master/1.A.-PX4-Topics%3A-How-to-Use-Them.md)
+3. [Expanding Test File to Multi-Vehicle Application]([https://github.com/p4mars/drone_light_show/wiki/2.-Expanding-Test-File-to-Multi-Vehicle-Application](https://github.com/lauren-jordan/Drone_Light_Show_Wiki/blob/master/2.-Expanding-Test-File-to-Multi-Vehicle-Application.md) for a simple triangle configuration \
+3.A. [Frame Transformation]([https://github.com/p4mars/drone_light_show/wiki/2.A.-Frame-Transformation](https://github.com/lauren-jordan/Drone_Light_Show_Wiki/blob/master/2.A.-Frame-Transformation.md)
+4. [Path Planning]([https://github.com/p4mars/drone_light_show/wiki/3.-Path-Planning](https://github.com/lauren-jordan/Drone_Light_Show_Wiki/blob/master/3.-Path-Planning.md)
+5. [Building the Gazebo World]([https://github.com/p4mars/drone_light_show/wiki/4.-Building-Gazebo-World](https://github.com/lauren-jordan/Drone_Light_Show_Wiki/blob/master/4.-Building-Gazebo-World.md)
+6. [Implementing Path Planning to Multi Node Simulation]([https://github.com/p4mars/drone_light_show/wiki/5.-Implementing-Path-Planning-to-Multi%E2%80%90Node-Simulation](https://github.com/lauren-jordan/Drone_Light_Show_Wiki/blob/master/5.-Implementing-Path-Planning-to-Multi%E2%80%90Node-Simulation.md)
+7. [Final Remarks]([https://github.com/p4mars/drone_light_show/wiki/6.-Final-Remarks](https://github.com/lauren-jordan/Drone_Light_Show_Wiki/blob/master/6.-Final-Remarks.md)
